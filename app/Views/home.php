@@ -50,6 +50,12 @@
                                 <td><?php echo $html['getInfGrados'][$i]['alumnos']; ?></td>
                             </tr>
                         <?php endfor; ?>
+                        <tr>
+                            <td colspan="2" scope="row">Totales</td>
+                            <td><?php echo $html['getNumeroAlumnos']['hombres']; ?></td>
+                            <td><?php echo $html['getNumeroAlumnos']['mujeres']; ?></td>
+                            <td><?php echo $html['getNumeroAlumnos']['total']; ?></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
