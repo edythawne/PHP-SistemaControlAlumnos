@@ -1,0 +1,80 @@
+<?php defined('SYSTEMPATH') || exit('No direct script access allowed'); ?>
+
+CRITICAL - 2019-10-18 12:04:05 --> Call to undefined function App\Controllers\hello()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2019-10-18 12:05:04 --> Call to undefined function App\Controllers\hello()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2019-10-18 12:05:05 --> Call to undefined function App\Controllers\hello()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2019-10-18 12:05:05 --> Call to undefined function App\Controllers\hello()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2019-10-18 12:05:05 --> Call to undefined function App\Controllers\hello()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2019-10-18 12:05:05 --> Call to undefined function App\Controllers\hello()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2019-10-18 12:05:06 --> Call to undefined function App\Controllers\hello()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2019-10-18 12:06:14 --> Call to undefined function App\Controllers\hello()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2019-10-18 12:06:15 --> Call to undefined method App\Controllers\Home::view()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2019-10-18 12:06:15 --> Call to undefined method App\Controllers\Home::view()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2019-10-18 12:06:21 --> Call to undefined method App\Controllers\Home::view()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2019-10-18 12:06:22 --> Call to undefined method App\Controllers\Home::view()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2019-10-18 12:06:27 --> Call to undefined method App\Controllers\Home::view()
+#0 C:\apache\htdocs\ford32\system\CodeIgniter.php(844): App\Controllers\Home->index()
+#1 C:\apache\htdocs\ford32\system\CodeIgniter.php(335): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\apache\htdocs\ford32\system\CodeIgniter.php(245): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\apache\htdocs\ford32\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}

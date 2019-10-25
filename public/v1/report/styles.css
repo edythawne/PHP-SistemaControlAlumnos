@@ -1,0 +1,73 @@
+/** Define the margins of your page **/
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #ffffff;
+}
+
+body {
+    font-family: 'Droid', 'Helvetica';
+    width: 100%;
+    font-size: 18px;
+    text-align: left;
+    background-color: #FFF;
+}
+
+@page {
+    margin: 100px 70px;
+}
+
+header {
+    position: fixed;
+    top: -60px;
+    left: 0px;
+    right: 0px;
+    height: 265px;
+    z-index: 100;
+    margin-top: 235px;
+}
+
+footer {
+    position: fixed;
+    bottom: -60px;
+    left: 0px;
+    right: 0px;
+    height: 125px;
+    z-index: 100;
+    margin-bottom: -35px;
+
+    /** Extra personal styles **/
+    text-align: center;
+    line-height: 35px;
+}
+
+.signature {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+thead {
+    table-layout: fixed;
+}
+
+td, th {
+    table-layout: fixed;
+    border: 1px solid #757575;
+    text-align: center;
+    padding: 10px;
+}
+
+th {
+    height: 40px;
+}
