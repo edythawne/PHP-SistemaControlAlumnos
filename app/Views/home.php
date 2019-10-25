@@ -30,8 +30,8 @@
             <h4>Escuela Primaria Ford 32</h4>
 
             <div class="table-responsive">
-                <table class="table">
-                    <thead class="thead-dark">
+                <table class="table text-center">
+                    <thead class="thead-dark ">
                         <tr>
                             <th scope="col">Grado - Grupo</th>
                             <th scope="col">Docente</th>
