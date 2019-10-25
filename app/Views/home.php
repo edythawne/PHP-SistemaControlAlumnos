@@ -5,8 +5,9 @@
 ?>
 
 <!-- Main Init -->
-<main class="d-flex p-4">
-    <div class="row">
+<main class="container">
+    <br>
+    <!--<div class="row">
         <div class="col-sm-12 col-md-3 col-lg-4">
             <div class="card" style="width: 20rem;">
                 <div class="card-body">
@@ -20,6 +21,27 @@
                 <div class="card-actions">
                     <a class="btn btn-outline-primary" href="#">Generar Lista</a>
                 </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <h4>Escuela Primaria Ford 32</h4>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

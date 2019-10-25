@@ -11,7 +11,9 @@ SELECT Alumnos.idAlumno, Alumnos.nombre, Alumnos.apellidos, Tutores.nombre, Tuto
     INNER JOIN Grupos ON Alumnos.fk_grupo = Grupos.idGrupo
     WHERE Alumnos.sexo = 'F' AND (Grupos.grado = 6 OR Grupos.grado = 1) AND Alumnos.apellidos LIKE '%PEREZ%'; 
     
-SELECT sexo, COUNT(*) AS 'Total' FROM Alumnos WHERE activo = '1' GROUP BY sexo;
+SELECT Grupos.idGrupo, Grupos.grado, Grupos.grupo, COUNT(sexo), Alumnos.sexo, COUNT(*) AS 'mujeres' FROM Alumnos
+    INNER JOIN Grupos ON Alumnos.fk_grupo = Grupos.idGrupo
+	WHERE Alumnos.activo = '1' AND Grupos.activo = '1' AND Alumnos.sexo = 'M' GROUP BY Grupos.idGrupo;
 
 SELECT (SELECT COUNT(idAlumno) FROM Alumnos WHERE activo = '1') AS Total, 
 	(SELECT COUNT(sexo) FROM Alumnos WHERE sexo = 'M' AND activo = '1') AS Hombre,
