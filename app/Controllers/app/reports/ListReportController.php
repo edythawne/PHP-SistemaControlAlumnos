@@ -28,7 +28,7 @@ class ListReportController extends BaseController {
     public function index(){
         $this -> data['html']['title'] = 'Lista de Alumnos';
         $this -> data['html']['director'] = $this -> student -> getDirector();
-        $this -> data['html']['students'] = $this -> student -> getAllStudentsGrade();
+        $this -> data['html']['students'] = $this -> student -> getTodosAlumnosGrados();
 
         $html_content =  view('reports/report1', $this -> data, array('saveData' => true));
         //print_r($html_content);
@@ -44,7 +44,7 @@ class ListReportController extends BaseController {
     public function report2(){
         $this -> data['html']['title'] = 'Lista de Alumnos';
         $this -> data['html']['director'] = $this -> student -> getDirector();
-        $this -> data['html']['students'] = $this -> student -> getAllStudentsGrade();
+        $this -> data['html']['students'] = $this -> student -> getTodosAlumnosGrados();
 
         $html_content =  view('reports/report2', $this -> data, array('saveData' => true));
         //print_r($html_content);

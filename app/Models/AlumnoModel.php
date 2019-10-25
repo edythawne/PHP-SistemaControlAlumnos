@@ -10,6 +10,13 @@ class AlumnoModel extends Model {
     // Table DataBase
     protected $table_alumno = 'Alumnos';
     protected $table_grupo = 'Grupos';
+    protected $table_docentes = 'Docentes';
+    protected $table_docgrup = 'DocGrup';
+
+    // Relation
+    protected $grupos_idgrupo_to_alumno_fk_grupo = 'Alumnos.fk_grupo = Grupos.idGrupo';
+    protected $docgrup_fkd_grupo_to_grupos_idgrupo = 'Grupos.idGrupo = DocGrup.fkd_grupo';
+    protected $docentes_iddocente_to_docgrup_fk_docente = 'DocGrup.fk_docente = Docentes.idDocente';
 
     /**
      * AlumnoModel constructor.
@@ -21,7 +28,7 @@ class AlumnoModel extends Model {
     /**
      * Regresa el numero de hombre y mujeres
      */
-    public function getNumbersStudents(){
+    public function getNumeroAlumnos(){
         $this -> connect();
 
         // SQL Sentences Builder
@@ -39,7 +46,7 @@ class AlumnoModel extends Model {
     /**
      * Obtener todos los estudiantes
      */
-    public function getAllStudents(){
+    public function getTodosAlumnos(){
         $this -> connect();
 
         // SQL Sentences
@@ -56,7 +63,7 @@ class AlumnoModel extends Model {
     /**
      * Obtener todos los estudiantes
      */
-    public function getAllStudentsGrade(){
+    public function getTodosAlumnosGrados(){
         $this -> connect();
 
         // SQL Sentences
@@ -85,7 +92,27 @@ class AlumnoModel extends Model {
         $query = $builder -> get() -> getResultArray();
 
         $this -> disconnect();
+        return $query;
+    }
 
+
+    public function getInfGrados(){
+        $this -> connect();
+
+        // SQL Sentences
+        $builder = $this -> database -> table($this->table_alumno);
+        $builder -> select("Grupos.idGrupo, Grupos.grado, Docentes.nombre, Docentes.ape_paterno, Docentes.ape_materno, "
+            ."Grupos.grupo, COUNT(CASE WHEN Alumnos.sexo='M' THEN 1 END) AS hombres, "
+            ."COUNT(CASE WHEN Alumnos.sexo='F' THEN 1 END) AS mujeres, COUNT(*) AS alumnos");
+        $builder -> join($this -> table_grupo, $this -> grupos_idgrupo_to_alumno_fk_grupo);
+        $builder -> join($this -> table_docgrup, $this -> docgrup_fkd_grupo_to_grupos_idgrupo);
+        $builder -> join($this -> table_docentes, $this->docentes_iddocente_to_docgrup_fk_docente);
+        $builder -> where("Alumnos.activo = '1'");
+        $builder -> where("Grupos.activo = '1'");
+        $builder -> groupBy("Grupos.idGrupo");
+        $query = $builder -> get() -> getResultArray();
+
+        $this -> disconnect();
         return $query;
     }
 

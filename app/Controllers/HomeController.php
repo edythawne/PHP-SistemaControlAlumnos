@@ -12,7 +12,9 @@ class HomeController extends BaseController {
 
     public function index(){
         $this -> data['html']['title'] = 'Ford 32';
-        $this -> data['html']['getNumbersStudents'] = $this -> student -> getNumbersStudents();
+        $this -> data['html']['getInfGrados'] = $this -> student -> getInfGrados();
+        //$this -> data['html']['getNumbersStudents'] = $this -> student -> getNumeroAlumnos();
+
         return view('home', $this-> data);
 	}
 }
