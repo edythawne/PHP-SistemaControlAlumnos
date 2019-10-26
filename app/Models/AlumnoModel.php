@@ -43,15 +43,13 @@ class AlumnoModel extends Model {
         $this -> connect();
 
         // SQL Sentences Builder
-        $statement = "SELECT (SELECT COUNT(sexo) FROM Alumnos WHERE sexo = 'M' AND activo = '1') AS hombres,
-            (SELECT COUNT(sexo) FROM Alumnos WHERE sexo = 'F' AND activo = '1') AS mujeres,
-            (SELECT COUNT(idAlumno) FROM Alumnos WHERE activo = '1') AS total";
-        $query = $this -> database -> query($statement);
-        $result = $query -> getRowArray();
-
+        $builder = $this -> database -> query("SELECT (SELECT COUNT(sexo) FROM Alumnos WHERE sexo = 'M' AND activo = '1') AS hombres, "
+            ."(SELECT COUNT(sexo) FROM Alumnos WHERE sexo = 'F' AND activo = '1') AS mujeres, "
+            ."(SELECT COUNT(idAlumno) FROM Alumnos WHERE activo = '1') AS total");
+        $query = $builder -> getRowArray();
         $this -> disconnect();
 
-        return $result;
+        return $query;
     }
 
     /**

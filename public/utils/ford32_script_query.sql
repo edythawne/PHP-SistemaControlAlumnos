@@ -2,7 +2,7 @@
 USE Ford32_school;
 
 -- Consulta de Alumnos
-SELECT * FROM Alumnos WHERE activo = '1';
+SELECT * FROM Alumntos WHERE activo = '1';
 SELECT * FROM Tutores;
 SELECT * FROM Grupos;
 

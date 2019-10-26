@@ -1,3 +1,4 @@
+<br><br>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="<?php echo js_url('jquery-3.3.1.slim.js'); ?>"></script>
