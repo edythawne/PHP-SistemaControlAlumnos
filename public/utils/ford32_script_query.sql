@@ -6,10 +6,10 @@ SELECT * FROM Alumntos WHERE activo = '1';
 SELECT * FROM Tutores;
 SELECT * FROM Grupos;
 
-SELECT Alumnos.idAlumno, Alumnos.nombre, Alumnos.apellidos, Tutores.nombre, Tutores.apellidos, Grupos.idGrupo, Grupos.grado, Grupos.grupo FROM Alumnos 
+SELECT Alumnos.idAlumno, Alumnos.nombre, Alumnos.ape_paterno, Tutores.nombre, Tutores.ape_paterno, Grupos.idGrupo, Grupos.grado, Grupos.grupo FROM Alumnos 
 	INNER JOIN Tutores ON Alumnos.fk_tutor = Tutores.idTutor
     INNER JOIN Grupos ON Alumnos.fk_grupo = Grupos.idGrupo
-    WHERE Alumnos.sexo = 'F' AND (Grupos.grado = 6 OR Grupos.grado = 1) AND Alumnos.apellidos LIKE '%PEREZ%'; 
+    WHERE Alumnos.sexo = 'F' AND (Grupos.grado = 6 OR Grupos.grado = 1) AND Alumnos.ape_paterno LIKE '%PEREZ%'; 
     
 SELECT Grupos.idGrupo, Grupos.grado, Docentes.nombre, Docentes.ape_paterno, Docentes.ape_materno, 
 	Grupos.grupo, COUNT(CASE WHEN Alumnos.sexo='M' THEN 1 END) AS hombres, 
@@ -23,3 +23,6 @@ SELECT Grupos.idGrupo, Grupos.grado, Docentes.nombre, Docentes.ape_paterno, Doce
 SELECT (SELECT COUNT(idAlumno) FROM Alumnos WHERE activo = '1') AS Total, 
 	(SELECT COUNT(sexo) FROM Alumnos WHERE sexo = 'M' AND activo = '1') AS Hombre,
 	(SELECT COUNT(sexo) FROM Alumnos WHERE sexo = 'F' AND activo = '1') AS Mujeres;
+
+SELECT * FROM Grupos WHERE Grupos.grado IN(1, 2, 3, 4, 5, 6) AND Grupos.activo = '1' ;
+    

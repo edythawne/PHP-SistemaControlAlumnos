@@ -78,7 +78,7 @@ class AlumnoModel extends Model {
         // SQL Sentences
         $builder = $this -> database -> table($this->table_alumno);
         $builder -> select('Alumnos.idAlumno, Alumnos.nombre, Alumnos.ape_paterno, Alumnos.ape_materno, Grupos.grado, Grupos.grupo');
-        $builder -> join($this -> grupos_idgrupo_to_alumno_fk_grupo);
+        $builder -> join($this -> table_grupo, $this -> grupos_idgrupo_to_alumno_fk_grupo);
         $builder -> where($this -> alumno_activo);
         $query = $builder -> get() -> getResultArray();
 

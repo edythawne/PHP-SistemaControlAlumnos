@@ -3,8 +3,9 @@
 use App\Controllers\BaseController;
 use App\Libraries\PdfLib;
 use App\Models\AlumnoModel;
+use Config\Services;
 
-class ListReportController extends BaseController {
+class ReportController extends BaseController {
     // Report Variable
     protected $pdf = null;
 
@@ -14,11 +15,15 @@ class ListReportController extends BaseController {
     // Array
     private $data = [];
 
+    // Objects
+    protected $request = null;
+
     /**
-     * ListReportController constructor.
+     * ReportController constructor.
      */
     public function __construct(){
         $this -> pdf = new PdfLib();
+        $this -> request = Services::request();
         $this -> student = new AlumnoModel();
     }
 
@@ -26,6 +31,32 @@ class ListReportController extends BaseController {
      * Index
      */
     public function index(){
+        $this -> data['html']['title'] = 'Generar Reportes';
+        return view('reports/home', $this-> data);
+    }
+
+    /**
+     * Valida la generacion de reportes
+     */
+    public function validarReporteGenerador(){
+        if (!$this->validate([])){
+            print_r($this->request->getVar('params'));
+            print_r('<br>');
+            print_r($this->request->getVar('grupos'));
+            print_r('<br>');
+            print_r($this->request->getVar('orientacion'));
+            print_r('<br>');
+            print_r($this->request->getVar('tamanio'));
+
+        } else {
+            echo 'xdaa';
+        }
+    }
+
+    /**
+     * Reporte 1 Genera la lista general de alumnos
+     */
+    public function reporte1(){
         $this -> data['html']['title'] = 'Lista de Alumnos';
         $this -> data['html']['director'] = $this -> student -> getDirector();
         $this -> data['html']['students'] = $this -> student -> getTodosAlumnosGrados();
@@ -41,7 +72,7 @@ class ListReportController extends BaseController {
     /**
      * Genera Reporte de alumno por grado (Separando NOMBRE - APELLIDOS)
      */
-    public function report2(){
+    public function reporte2(){
         $this -> data['html']['title'] = 'Lista de Alumnos';
         $this -> data['html']['director'] = $this -> student -> getDirector();
         $this -> data['html']['students'] = $this -> student -> getTodosAlumnosGrados();

@@ -69,9 +69,13 @@ $routes->setAutoRoute(true);
  *  My Controllers
  * --------------------------------------------------------------------
  */
-$routes -> add('alumno', 'app/Alumno');
-$routes -> add('report2', 'App\Controllers\app\reports\ListReportController::report2');
-$routes -> add('report1', 'App\Controllers\app\reports\ListReportController::index');
+$routes -> add('alumno', 'App\Controllers\app\AlumnoController::index');
+
+$routes -> add('reporte', 'App\Controllers\app\reports\ReportController::index');
+$routes -> add('reporte1', 'App\Controllers\app\reports\ReportController::reporte2');
+$routes -> add('reporte2', 'App\Controllers\app\reports\ReportController::reporte2');
+
+$routes -> add('validarReporteGenerador', 'App\Controllers\app\reports\ReportController::validarReporteGenerador');
 
 /**
  * --------------------------------------------------------------------
