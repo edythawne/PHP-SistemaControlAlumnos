@@ -110,7 +110,8 @@ class AlumnoModel extends Model {
 
         // SQL Sentences
         $builder = $this -> database -> table($this -> table_alumno);
-        $builder -> select("Grupos.idGrupo, Grupos.grado, Docentes.nombre, Docentes.ape_paterno, Docentes.ape_materno, "
+        $builder -> select("Grupos.idGrupo, Grupos.grado, ANY_VALUE(Docentes.nombre), ANY_VALUE(Docentes.ape_paterno), "
+            ."ANY_VALUE(Docentes.ape_materno), "
             ."Grupos.grupo, COUNT(CASE WHEN Alumnos.sexo='M' THEN 1 END) AS hombres, "
             ."COUNT(CASE WHEN Alumnos.sexo='F' THEN 1 END) AS mujeres, COUNT(*) AS alumnos");
         $builder -> join($this -> table_grupo, $this -> grupos_idgrupo_to_alumno_fk_grupo);
