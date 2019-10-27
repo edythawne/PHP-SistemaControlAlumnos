@@ -23,7 +23,7 @@
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" id="nombre1" class="custom-control-input" checked="true" name="params[]"
-                                               value="CONCANT(Alumnos.ape_paterno, ' ', Alumnos.ape_materno, ' ', Alumnos.nombre) AS 'Nombre del Alumno'">
+                                               value="CONCAT(Alumnos.ape_paterno, ' ', Alumnos.ape_materno, ' ', Alumnos.nombre) AS 'Nombre del Alumno'">
                                         <label class="custom-control-label" for="nombre1">Nombre y Apellidos</label>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="curp" name="params[]"
-                                               value="Alumno.curp AS CURP">
+                                               value="Alumnos.curp AS CURP">
                                         <label class="custom-control-label" for="curp">CURP</label>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="cuarto_anio" checked="true" name="grupos[]" value="4">
-                                        <label class="custom-control-label" for="tercer_anio">Cuarto Grado</label>
+                                        <label class="custom-control-label" for="cuarto_anio">Cuarto Grado</label>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1">

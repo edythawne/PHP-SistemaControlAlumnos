@@ -2,9 +2,10 @@
 USE Ford32_school;
 
 -- Consulta de Alumnos
-SELECT * FROM Alumntos WHERE activo = '1';
+SELECT * FROM Alumnos WHERE activo = '1';
 SELECT * FROM Tutores;
 SELECT * FROM Grupos;
+SELECT * FROM DatosAlumno;
 
 SELECT Alumnos.idAlumno, Alumnos.nombre, Alumnos.ape_paterno, Tutores.nombre, Tutores.ape_paterno, Grupos.idGrupo, Grupos.grado, Grupos.grupo FROM Alumnos 
 	INNER JOIN Tutores ON Alumnos.fk_tutor = Tutores.idTutor
@@ -25,6 +26,25 @@ SELECT (SELECT COUNT(idAlumno) FROM Alumnos WHERE activo = '1') AS Total,
 	(SELECT COUNT(sexo) FROM Alumnos WHERE sexo = 'F' AND activo = '1') AS Mujeres;
 
 SELECT * FROM Grupos WHERE Grupos.grado IN(1, 2, 3, 4, 5, 6) AND Grupos.activo = '1' ;
+
+SELECT CONCAT(Grupos.grado, Grupos.grupo) AS 'Grado', 
+	CONCAT(Alumnos.ape_paterno, ' ', `Alumnos`.`ape_materno`, ' ', Alumnos.nombre) AS 'Nombre del Alumno', TiposSangre.tipo AS 'Tipo Sangre' 
+    FROM `Alumnos` 
+    LEFT JOIN `TiposSangre` ON `Alumnos`.`fk_tipo_sangre` = `TiposSangre`.`idTiposSangre` 
+    JOIN `Grupos` ON `Alumnos`.`fk_grupo` = `Grupos`.`idGrupo` 
+    WHERE `Alumnos`.`activo` = '1' AND `Grupos`.`activo` = '1' AND `Grupos`.`grado` IN ('1, 2, 3, 4, 5, 6');
+    
+    SELECT CONCAT(Grupos.grado, Grupos.grupo) AS 'Grado', 
+			CONCAT(Alumnos.ape_paterno, ' ', `Alumnos`.`ape_materno`, ' ', Alumnos.nombre) AS 'Nombre del Alumno', 
+            TiposSangre.tipo AS 'Tipo Sangre' FROM `Alumnos` 
+            LEFT JOIN `TiposSangre` ON `TiposSangre`.`idTiposSangre` = `Alumnos`.`fk_tipo_sangre` 
+            LEFT JOIN `Grupos` ON `Alumnos`.`fk_grupo` = `Grupos`.`idGrupo` 
+            WHERE `Alumnos`.`activo` = '1' AND `Grupos`.`activo` = '1' AND `Grupos`.`grado` IN ('1, 2, 3, 4, 5, 6');
+            
+SELECT CONCAT(Grupos.grado, Grupos.grupo) AS 'Grado', CONCAT(`Alumnos`.`ape_paterno`, ' ', `Alumnos`.`ape_materno`, ' ', Alumnos.nombre) AS 'Nombre del Alumno' 
+	FROM `Alumnos` 
+    JOIN `Grupos` ON `Alumnos`.`fk_grupo` = `Grupos`.`idGrupo` 
+    WHERE `Alumnos`.`activo` = '1' AND `Grupos`.`activo` = '1' AND `Grupos`.`grado` IN (1, 2, 3, 4, 5, 6);
 
 -- SELECT @@sql_mode;
 -- SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));

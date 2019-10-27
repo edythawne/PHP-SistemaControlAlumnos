@@ -8,6 +8,8 @@ use Config\Services;
 class ReportController extends BaseController {
     // Report Variable
     protected $pdf = null;
+    private $pdf_zise = null;
+    private $pdf_orientation = null;
 
     // Student Model
     protected $student = null;
@@ -39,18 +41,43 @@ class ReportController extends BaseController {
      * Valida la generacion de reportes
      */
     public function validarReporteGenerador(){
-        if (!$this->validate([])){
-            print_r($this->request->getVar('params'));
-            print_r('<br>');
-            print_r($this->request->getVar('grupos'));
-            print_r('<br>');
-            print_r($this->request->getVar('orientacion'));
-            print_r('<br>');
-            print_r($this->request->getVar('tamanio'));
+        $arg_campos = $this -> request -> getVar('params');
+        $arg_grupos = $this -> request -> getVar('grupos');
 
-        } else {
-            echo 'xdaa';
+        $this -> pdf_zise = $this -> request -> getVar('tamanio')[0];
+        $this -> pdf_orientation = $this -> request-> getVar('orientacion')[0];
+
+        $campos = "CONCAT(Grupos.grado, Grupos.grupo) AS 'Grado', ";
+        $grupos = '';
+
+        for ($i = 0; $i < count($arg_campos); $i++){
+            if ($i == count($arg_campos) - 1 ){ $campos.= $arg_campos[$i].'';
+            } else { $campos.= $arg_campos[$i].', ';}
         }
+
+        if (!empty($arg_grupos)){
+            for ($i = 0; $i < count($arg_grupos); $i++){
+                if ($i == count($arg_grupos) - 1 ){ $grupos.= $arg_grupos[$i].'';
+                } else { $grupos.= $arg_grupos[$i].', ';}
+            }
+        }
+
+        // Call Model
+        print_r($this -> student -> buildQueryReport($campos, $grupos));
+        //$this -> createPDF($response);
+    }
+
+    private function createPDF($response){
+        $this -> data['html']['title'] = 'Reporte';
+
+        // PDF Content
+        $html_content =  view('reports/pdf_viewer', $this -> data, array('saveData' => true));
+
+        // PDF Config
+        $this -> pdf -> loadHtml($html_content);
+        $this -> pdf -> setPaper($this -> pdf_zise, $this -> pdf_orientation);
+        $this -> pdf -> render();
+        $this -> pdf -> stream('Reporte.pdf', array("Attachment"=>0));
     }
 
     /**
