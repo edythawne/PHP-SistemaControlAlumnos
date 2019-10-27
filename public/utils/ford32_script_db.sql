@@ -11,19 +11,19 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Schema ford32_school
+-- Schema Ford32_school
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema ford32_school
+-- Schema Ford32_school
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `ford32_school` DEFAULT CHARACTER SET utf8 ;
-USE `ford32_school` ;
+CREATE SCHEMA IF NOT EXISTS `Ford32_school` DEFAULT CHARACTER SET utf8 ;
+USE `Ford32_school` ;
 
 -- -----------------------------------------------------
--- Table `ford32_school`.`datosalumno`
+-- Table `Ford32_school`.`datosalumno`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ford32_school`.`datosalumno` (
+CREATE TABLE IF NOT EXISTS `Ford32_school`.`DatosAlumno` (
   `idDatoAlumno` INT(11) NOT NULL,
   `peso` DOUBLE NULL DEFAULT NULL,
   `talla` DOUBLE NULL DEFAULT NULL,
@@ -35,9 +35,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `ford32_school`.`grupos`
+-- Table `Ford32_school`.`grupos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ford32_school`.`grupos` (
+CREATE TABLE IF NOT EXISTS `Ford32_school`.`Grupos` (
   `idGrupo` INT(11) NOT NULL AUTO_INCREMENT,
   `grado` INT(11) NOT NULL,
   `grupo` VARCHAR(2) NOT NULL,
@@ -50,9 +50,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `ford32_school`.`estados`
+-- Table `Ford32_school`.`estados`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ford32_school`.`estados` (
+CREATE TABLE IF NOT EXISTS `Ford32_school`.`Estados` (
   `idEstado` INT(11) NOT NULL AUTO_INCREMENT,
   `clave` VARCHAR(45) NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
@@ -64,9 +64,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `ford32_school`.`municipios`
+-- Table `Ford32_school`.`municipios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ford32_school`.`municipios` (
+CREATE TABLE IF NOT EXISTS `Ford32_school`.`Municipios` (
   `idMunicipio` INT(11) NOT NULL AUTO_INCREMENT,
   `fk_estado` INT(11) NOT NULL,
   `clave` VARCHAR(3) NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `ford32_school`.`municipios` (
   INDEX `fk_estado` (`fk_estado` ASC),
   CONSTRAINT `fk_estado`
     FOREIGN KEY (`fk_estado`)
-    REFERENCES `ford32_school`.`estados` (`idEstado`)
+    REFERENCES `Ford32_school`.`estados` (`idEstado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -83,9 +83,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `ford32_school`.`tipossangre`
+-- Table `Ford32_school`.`tipossangre`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ford32_school`.`tipossangre` (
+CREATE TABLE IF NOT EXISTS `Ford32_school`.`TiposSangre` (
   `idTiposSangre` INT(11) NOT NULL AUTO_INCREMENT,
   `tipo` VARCHAR(45) NOT NULL,
   `simbologia` VARCHAR(45) NOT NULL,
@@ -95,9 +95,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `ford32_school`.`tutores`
+-- Table `Ford32_school`.`tutores`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ford32_school`.`tutores` (
+CREATE TABLE IF NOT EXISTS `Ford32_school`.`Tutores` (
   `idTutor` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NOT NULL,
   `ape_paterno` VARCHAR(100) NULL DEFAULT NULL,
@@ -115,9 +115,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `ford32_school`.`alumnos`
+-- Table `Ford32_school`.`alumnos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ford32_school`.`alumnos` (
+CREATE TABLE IF NOT EXISTS `Ford32_school`.`Alumnos` (
   `idAlumno` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NULL,
     `ape_paterno` VARCHAR(100) NULL DEFAULT NULL,
@@ -141,27 +141,27 @@ CREATE TABLE IF NOT EXISTS `ford32_school`.`alumnos` (
   INDEX `fk_grupo` (`fk_grupo` ASC),
   CONSTRAINT `fk_dato_alumno`
     FOREIGN KEY (`fk_dato_alumno`)
-    REFERENCES `ford32_school`.`datosalumno` (`idDatoAlumno`)
+    REFERENCES `Ford32_school`.`datosalumno` (`idDatoAlumno`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_grupo`
     FOREIGN KEY (`fk_grupo`)
-    REFERENCES `ford32_school`.`grupos` (`idGrupo`)
+    REFERENCES `Ford32_school`.`grupos` (`idGrupo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_lugar_nacimiento`
     FOREIGN KEY (`fk_lugar_nacimiento`)
-    REFERENCES `ford32_school`.`municipios` (`idMunicipio`)
+    REFERENCES `Ford32_school`.`municipios` (`idMunicipio`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tipos_sangre`
     FOREIGN KEY (`fk_tipo_sangre`)
-    REFERENCES `ford32_school`.`tipossangre` (`idTiposSangre`)
+    REFERENCES `Ford32_school`.`tipossangre` (`idTiposSangre`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tutor`
     FOREIGN KEY (`fk_tutor`)
-    REFERENCES `ford32_school`.`tutores` (`idTutor`)
+    REFERENCES `Ford32_school`.`tutores` (`idTutor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -169,9 +169,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `ford32_school`.`docentes`
+-- Table `Ford32_school`.`docentes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ford32_school`.`docentes` (
+CREATE TABLE IF NOT EXISTS `Ford32_school`.`Docentes` (
   `idDocente` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `ape_paterno` VARCHAR(100) NULL DEFAULT NULL,
@@ -187,9 +187,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `ford32_school`.`docgrup`
+-- Table `Ford32_school`.`docgrup`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ford32_school`.`docgrup` (
+CREATE TABLE IF NOT EXISTS `Ford32_school`.`DocGrup` (
   `idDocGrup` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `fk_docente` INT(11) NOT NULL,
   `fkd_grupo` INT(11) NOT NULL,
@@ -202,24 +202,24 @@ CREATE TABLE IF NOT EXISTS `ford32_school`.`docgrup` (
   INDEX `fkd_grupo` (`fkd_grupo` ASC),
   CONSTRAINT `fk_docente`
     FOREIGN KEY (`fk_docente`)
-    REFERENCES `ford32_school`.`docentes` (`idDocente`)
+    REFERENCES `Ford32_school`.`docentes` (`idDocente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fkd_grupo`
     FOREIGN KEY (`fkd_grupo`)
-    REFERENCES `ford32_school`.`grupos` (`idGrupo`)
+    REFERENCES `Ford32_school`.`grupos` (`idGrupo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
--- USE `ford32_school`;
+-- USE `Ford32_school`;
 -- DELIMITER $$
--- USE `ford32_school`$$
+-- USE `Ford32_school`$$
 -- CREATE
 -- DEFINER=`root`@`localhost`
--- TRIGGER `ford32_school`.`Alumnos_Create_DatoAlumno`
--- AFTER INSERT ON `ford32_school`.`alumnos`
+-- TRIGGER `Ford32_school`.`Alumnos_Create_DatoAlumno`
+-- AFTER INSERT ON `Ford32_school`.`alumnos`
 -- FOR EACH ROW
 -- BEGIN
 	-- INSERT INTO DatosAlumno(idDatoAlumno, peso, talla) VALUES(NEW.idAlumno, 0.0, 0.0);

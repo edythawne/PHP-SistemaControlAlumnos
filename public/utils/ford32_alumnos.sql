@@ -5,7 +5,7 @@ USE Ford32_school;
 -- Volcado de datos para la tabla `datosalumno`
 --
 
-INSERT INTO `datosalumno` (`idDatoAlumno`, `peso`, `talla`, `created_at`, `update_at`) VALUES
+INSERT INTO `DatosAlumno` (`idDatoAlumno`, `peso`, `talla`, `created_at`, `update_at`) VALUES
 	(1, 23, 1.14, '2019-10-24 01:24:36', NULL),
 	(2, 19.5, 1.15, '2019-10-24 01:24:36', NULL),
 	(3, 21, 1.1, '2019-10-24 01:24:36', NULL),
@@ -105,7 +105,7 @@ INSERT INTO `datosalumno` (`idDatoAlumno`, `peso`, `talla`, `created_at`, `updat
 -- Volcado de datos para la tabla `tutores`
 --
 
-INSERT INTO `tutores` (`idTutor`, `nombre`, `ape_paterno`, `ape_materno`, `fec_nacimiento`, `sexo`, `domicilio`, `telefono`, `celular`, `created_at`, `update_at`) VALUES
+INSERT INTO `Tutores` (`idTutor`, `nombre`, `ape_paterno`, `ape_materno`, `fec_nacimiento`, `sexo`, `domicilio`, `telefono`, `celular`, `created_at`, `update_at`) VALUES
 	(1, 'GUILLERMINA', 'VALENCIA', 'CRUZ', NULL, NULL, NULL, NULL, NULL, '2019-10-24 01:12:17', NULL),
 	(2, 'NORMA LETICIA', 'VAZQUEZ', 'ALVAREZ', NULL, NULL, NULL, NULL, NULL, '2019-10-24 01:12:17', NULL),
 	(3, 'CELINA', 'BASTIAN', 'VASQUEZ', NULL, NULL, NULL, NULL, NULL, '2019-10-24 01:12:18', NULL),
@@ -202,7 +202,7 @@ INSERT INTO `tutores` (`idTutor`, `nombre`, `ape_paterno`, `ape_materno`, `fec_n
 
 
 -- INSERT 
-INSERT INTO `alumnos` (`idAlumno`, `nombre`, `ape_paterno`, `ape_materno`, `activo`, `fec_nacimiento`, `sexo`, `curp`, `fk_lugar_nacimiento`, `fk_tutor`, `fk_dato_alumno`, `fk_tipo_sangre`, `fk_grupo`, `created_at`, `update_at`) VALUES
+INSERT INTO `Alumnos` (`idAlumno`, `nombre`, `ape_paterno`, `ape_materno`, `activo`, `fec_nacimiento`, `sexo`, `curp`, `fk_lugar_nacimiento`, `fk_tutor`, `fk_dato_alumno`, `fk_tipo_sangre`, `fk_grupo`, `created_at`, `update_at`) VALUES
 	(1, 'GERARDO DE JESUS', 'BANDALA', 'VALENCIA', '1', '2013-12-08', 'M', 'BAVG131208HVZNLRA2', NULL, 1, 1, NULL, 1, '2019-10-23 23:37:54', NULL),
 	(2, 'BRAIYAN DE JESUS', 'BASILIO', 'VAZQUEZ', '1', '2013-04-09', 'M', 'BAVB130409HVZSZRA8', NULL, 2, 2, NULL, 1, '2019-10-23 23:37:55', NULL),
 	(3, 'JONATHAN GEOVANNI', 'BASTIAN', 'DE LOS SANTOS', '1', '2013-05-13', 'M', 'BASJ130513HVZSNHA4', NULL, 3, 3, NULL, 1, '2019-10-23 23:37:55', NULL),
