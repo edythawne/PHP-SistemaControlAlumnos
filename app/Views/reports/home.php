@@ -179,6 +179,68 @@
 
             </div>
         </div>
+        <!-- -------------------- -->
+
+        <!-- -------------------- -->
+        <div class="col-sm-12 col-md-6 col-lg-6 mt-4">
+
+            <h4>Configuracion de Reporte</h4>
+
+            <div class="form-row border align-items-center p-2">
+                <!-- Section 1 Start -->
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-2">
+                    <b>Orientacion de Página</b>
+                    <div class="dropdown-divider"></div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="landscape" class="custom-control-input" checked="true"  name="orientacion[]"
+                               value="landscape">
+                        <label class="custom-control-label" for="landscape">Horizontal</label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="portrait" class="custom-control-input" name="orientacion[]"
+                               value="portrait">
+                        <label class="custom-control-label" for="portrait">Vertical</label>
+                    </div>
+                </div>
+                <!-- Section 1 End -->
+
+                <!-- Section 2 Start -->
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-2">
+                    <b>Tamaño de Página</b>
+                    <div class="dropdown-divider"></div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="carta" class="custom-control-input" checked="true" name="tamanio[]"
+                               value="letter">
+                        <label class="custom-control-label" for="carta">Tamaño Carta</label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="a4" class="custom-control-input"  name="tamanio[]"
+                               value="A4">
+                        <label class="custom-control-label" for="a4">Tamaño A4</label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="oficio" class="custom-control-input"  name="tamanio[]"
+                               value="legal">
+                        <label class="custom-control-label" for="oficio">Tamaño Oficio</label>
+                    </div>
+                </div>
+                <!-- Section 2 End -->
+
+            </div>
+
+        </div>
+        <!-- -------------------- -->
+
     </div>
 
             <!-- <div class="col-6 col-sm-12 col-md-12 col-lg-12">
