@@ -64,18 +64,17 @@ class ReportController extends BaseController {
 
         // Call Model
         $data = json_decode($this -> student -> buildQueryReport($campos, $grupos), 1);
-        $this -> createPDF($data);
-        /**foreach($data['data'] as $row) {
-            foreach($row as $key => $val) {
-                echo $key . ': ' . $val;
-                echo '<br>';
-            }
-        }  **/
+        $this -> pdfRender($data);
     }
 
-    private function createPDF($data){
+    /**
+     * PDF Render
+     * @param $data
+     */
+    private function pdfRender($data){
         $this -> data['html']['title'] = 'Reporte';
         $this -> data['html']['report'] = $data['data'];
+        $this -> data['html']['director'] = $this -> student -> getDirector();
 
         // PDF Content
         $html_content =  view('reports/pdf_viewer', $this -> data, array('saveData' => true));
@@ -85,38 +84,6 @@ class ReportController extends BaseController {
         $this -> pdf -> setPaper($this -> pdf_zise, $this -> pdf_orientation);
         $this -> pdf -> render();
         $this -> pdf -> stream('Reporte.pdf', array("Attachment"=>0));
-    }
-
-    /**
-     * Reporte 1 Genera la lista general de alumnos
-     */
-    public function reporte1(){
-        $this -> data['html']['title'] = 'Lista de Alumnos';
-        $this -> data['html']['director'] = $this -> student -> getDirector();
-        $this -> data['html']['students'] = $this -> student -> getTodosAlumnosGrados();
-
-        $html_content =  view('reports/report1', $this -> data, array('saveData' => true));
-        //print_r($html_content);
-        $this->pdf->loadHtml($html_content);
-        $this->pdf->setPaper('A4', 'portrait');
-        $this->pdf->render();
-        $this->pdf->stream('Reporte F1 .pdf', array("Attachment"=>0));
-    }
-
-    /**
-     * Genera Reporte de alumno por grado (Separando NOMBRE - APELLIDOS)
-     */
-    public function reporte2(){
-        $this -> data['html']['title'] = 'Lista de Alumnos';
-        $this -> data['html']['director'] = $this -> student -> getDirector();
-        $this -> data['html']['students'] = $this -> student -> getTodosAlumnosGrados();
-
-        $html_content =  view('reports/report2', $this -> data, array('saveData' => true));
-        //print_r($html_content);
-        $this->pdf->loadHtml($html_content);
-        $this->pdf->setPaper('A4', 'portrait');
-        $this->pdf->render();
-        $this->pdf->stream('Reporte F2.pdf', array("Attachment"=>0));
     }
 
 }

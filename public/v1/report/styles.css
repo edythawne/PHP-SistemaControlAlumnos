@@ -29,7 +29,11 @@ header {
     margin-top: 235px;
 }
 
-footer {
+main {
+    padding-bottom: 100px;
+}
+
+/**footer {
     position: fixed;
     bottom: -60px;
     left: 0px;
@@ -38,7 +42,18 @@ footer {
     z-index: 100;
     margin-bottom: -35px;
 
-    /** Extra personal styles **/
+    text-align: center;
+    line-height: 35px;
+} **/
+
+footer {
+    position: fixed;
+    bottom: -60px;
+    left: 0px;
+    right: 0px;
+    height: 145px;
+    z-index: 100;
+
     text-align: center;
     line-height: 35px;
 }
@@ -65,7 +80,7 @@ td, th {
     table-layout: fixed;
     border: 1px solid #757575;
     text-align: center;
-    padding: 10px;
+    padding: 6px;
 }
 
 th {

@@ -10,7 +10,7 @@
 ?>
 
 <!-- Wrap the content of your PDF inside a main tag -->
-<main>
+<main style="font-size: 18px;">
     <!--<?php echo $html['report'][0]['Grado']; ?>-->
     <?php for($i = 0; $i < count($html['report']); $i++):  ?>
 
@@ -19,7 +19,7 @@
             <?php  if ($i == 0):  ?>
 
                 <!-- Page Init -->
-                <div style="page-break-after: always; font-size: 20px;">
+                <div style="page-break-after: always;">
 
                 <!-- Table Init -->
                 <table>
@@ -62,7 +62,7 @@
             ?>
 
             <!-- Page Init -->
-            <div style="page-break-after: always; font-size: 20px;">
+            <div style="page-break-after: always;">
 
                 <!-- Table Init -->
                 <table>

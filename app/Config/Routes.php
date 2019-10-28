@@ -72,10 +72,7 @@ $routes->setAutoRoute(true);
 $routes -> add('alumno', 'App\Controllers\app\AlumnoController::index');
 
 $routes -> add('reporte', 'App\Controllers\app\reports\ReportController::index');
-$routes -> add('reporte1', 'App\Controllers\app\reports\ReportController::reporte1');
-$routes -> add('reporte2', 'App\Controllers\app\reports\ReportController::reporte2');
-
-$routes -> add('validarReporteGenerador', 'App\Controllers\app\reports\ReportController::validarReporteGenerador');
+$routes -> add('report_viewer', 'App\Controllers\app\reports\ReportController::validarReporteGenerador');
 
 /**
  * --------------------------------------------------------------------
