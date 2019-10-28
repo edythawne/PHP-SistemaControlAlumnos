@@ -63,12 +63,19 @@ class ReportController extends BaseController {
         }
 
         // Call Model
-        print_r($this -> student -> buildQueryReport($campos, $grupos));
-        //$this -> createPDF($response);
+        $data = json_decode($this -> student -> buildQueryReport($campos, $grupos), 1);
+        $this -> createPDF($data);
+        /**foreach($data['data'] as $row) {
+            foreach($row as $key => $val) {
+                echo $key . ': ' . $val;
+                echo '<br>';
+            }
+        }  **/
     }
 
-    private function createPDF($response){
+    private function createPDF($data){
         $this -> data['html']['title'] = 'Reporte';
+        $this -> data['html']['report'] = $data['data'];
 
         // PDF Content
         $html_content =  view('reports/pdf_viewer', $this -> data, array('saveData' => true));

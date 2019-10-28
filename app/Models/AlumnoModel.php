@@ -145,6 +145,9 @@ class AlumnoModel extends Model {
     public function buildQueryReport($params, $grupos){
         $this -> connect();
 
+        // Variables extras
+        $data = [];
+
         // SQL Sentences
         $builder = $this -> database -> table($this -> table_alumno);
         $builder -> select($params);
@@ -170,10 +173,13 @@ class AlumnoModel extends Model {
         }
 
         //print_r($builder->getCompiledSelect());
-        $query = $builder -> get() -> getResultArray();
+        //print_r($builder -> get() -> getResultArray());
+        //$data['sql'] = $builder->getCompiledSelect();
+        //$data['fields'] = $builder -> get() -> getFieldNames();
+        $data['data'] = $builder -> get() -> getResultArray();
 
         $this -> disconnect();
-        return $query;
+        return json_encode($data, JSON_FORCE_OBJECT);
     }
 
     /**

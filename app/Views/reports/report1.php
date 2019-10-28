@@ -18,7 +18,7 @@
                 <!-- Page Init -->
                 <div style="page-break-after: always; font-size: 20px;">
                     <!-- Table Init -->
-                    <table style="">
+                    <table>
                         <thead>
                         <tr bgcolor="#c3c3c3">
                             <th colspan="2">ALUMNOS <?php echo $html['students'][$i]['grado'].'° '.$html['students'][$i]['grupo']; ?></th>
