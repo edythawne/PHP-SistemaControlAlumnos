@@ -41,14 +41,17 @@ class ReportController extends BaseController {
      * Valida la generacion de reportes
      */
     public function validarReporteGenerador(){
+        $variables = [];
         $arg_campos = $this -> request -> getVar('params');
         $arg_grupos = $this -> request -> getVar('grupos');
+        $arg_sexo = $this -> request -> getVar('sexo');
 
         $this -> pdf_zise = $this -> request -> getVar('tamanio')[0];
         $this -> pdf_orientation = $this -> request-> getVar('orientacion')[0];
 
         $campos = "CONCAT(Grupos.grado, Grupos.grupo) AS 'Grado', ";
         $grupos = '';
+        $sexo = '';
 
         for ($i = 0; $i < count($arg_campos); $i++){
             if ($i == count($arg_campos) - 1 ){ $campos.= $arg_campos[$i].'';
@@ -62,8 +65,21 @@ class ReportController extends BaseController {
             }
         }
 
+        if (!empty($arg_sexo)){
+            for ($i = 0; $i < count($arg_sexo); $i++){
+                if ($i == count($arg_sexo) - 1 ){ $sexo.= $arg_sexo[$i].'';
+                } else { $sexo.= $arg_sexo[$i].', ';}
+            }
+        }
+
         // Call Model
-        $data = json_decode($this -> student -> buildQueryReport($campos, $grupos), 1);
+        $variables['sexo'] = $sexo;
+        $variables['campos'] = $campos;
+        $variables['grupos'] = $grupos;
+
+        //print_r($variables);
+
+        $data = json_decode($this -> student -> buildQueryReport($variables), 1);
         $this -> pdfRender($data);
     }
 

@@ -121,14 +121,14 @@
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" id="femenino" class="custom-control-input" checked="true" name="sexo[]"
-                               value="Alumnos.sexo = 'F'">
+                               value="'F'">
                         <label class="custom-control-label" for="femenino">Femenino</label>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" id="masculino" class="custom-control-input" checked="true" name="sexo[]"
-                               value="Alumnos.sexo = 'M'">
+                               value="'M'">
                         <label class="custom-control-label" for="masculino">Masculino</label>
                     </div>
                 </div>

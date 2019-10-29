@@ -141,7 +141,7 @@ class AlumnoModel extends Model {
         return $query;
     }
 
-    public function buildQueryReport($params, $grupos){
+    public function buildQueryReport($params){
         $this -> connect();
 
         // Variables extras
@@ -149,17 +149,17 @@ class AlumnoModel extends Model {
 
         // SQL Sentences
         $builder = $this -> database -> table($this -> table_alumno);
-        $builder -> select($params);
+        $builder -> select($params['campos']);
 
-        if (strpos($params, $this -> table_tutores)){
+        if (strpos($params['campos'], $this -> table_tutores)){
             $builder -> join($this -> table_tutores, $this -> tutores_idtutor_to_alumno_fk_tutor, $this -> join_left);
         }
 
-        if (strpos($params, $this -> table_tiposangre)){
+        if (strpos($params['campos'], $this -> table_tiposangre)){
             $builder -> join($this -> table_tiposangre, $this -> tiposangre_idtipossangre_to_alumno_fk_tipo_sangre, $this -> join_left);
         }
 
-        if (strpos($params, $this -> table_datosalumno)){
+        if (strpos($params['campos'], $this -> table_datosalumno)){
             $builder -> join($this -> table_datosalumno, $this -> datosalumno_iddatoalumno_to_alumno_fk_dato_alumno, $this -> join_left);
         }
 
@@ -167,8 +167,12 @@ class AlumnoModel extends Model {
         $builder -> where($this -> alumno_activo);
         $builder -> where($this -> grupo_activo);
 
-        if (!empty($grupos)){
-            $builder -> where("Grupos.grado IN (".$grupos.")");
+        if (!empty($params['grupos'])){
+            $builder -> where("Grupos.grado IN (".$params['grupos'].")");
+        }
+
+        if (!empty($params['sexo'])){
+            $builder -> where("Alumnos.sexo IN (".$params['sexo'].")");
         }
 
         //print_r($builder->getCompiledSelect());
