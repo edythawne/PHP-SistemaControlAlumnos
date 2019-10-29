@@ -5,7 +5,7 @@
 ?>
 
 <!-- Main Init -->
-<main class="container">
+<main style="margin: 30px;">
 
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -26,7 +26,7 @@
                         <?php for ($i = 0; $i < count($html['getInfGrados']); $i++):  ?>
                             <tr>
                                 <td><?php echo $html['getInfGrados'][$i]['grado'].$html['getInfGrados'][$i]['grupo']; ?></td>
-                                <td><?php echo $html['getInfGrados'][$i]['nombre'].' '.$html['getInfGrados'][$i]['ape_paterno'].' '.$html['getInfGrados'][$i]['ape_materno']; ?></td>
+                                <td><?php echo $html['getInfGrados'][$i]['nombre']; ?></td>
                                 <td><?php echo $html['getInfGrados'][$i]['hombres']; ?></td>
                                 <td><?php echo $html['getInfGrados'][$i]['mujeres']; ?></td>
                                 <td><?php echo $html['getInfGrados'][$i]['alumnos']; ?></td>

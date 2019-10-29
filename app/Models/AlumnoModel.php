@@ -126,13 +126,12 @@ class AlumnoModel extends Model {
 
         // SQL Sentences
         $builder = $this -> database -> table($this -> table_alumno);
-        $builder -> select("Grupos.idGrupo, Grupos.grado, ANY_VALUE(Docentes.nombre), ANY_VALUE(Docentes.ape_paterno), "
-            ."ANY_VALUE(Docentes.ape_materno), "
+        $builder -> select("Grupos.idGrupo, Grupos.grado, CONCAT(ANY_VALUE(Docentes.nombre), ' ', ANY_VALUE(Docentes.ape_paterno), ' ', ANY_VALUE(Docentes.ape_materno)) AS nombre, "
             ."Grupos.grupo, COUNT(CASE WHEN Alumnos.sexo='M' THEN 1 END) AS hombres, "
             ."COUNT(CASE WHEN Alumnos.sexo='F' THEN 1 END) AS mujeres, COUNT(*) AS alumnos");
-        $builder -> join($this -> table_grupo, $this -> grupos_idgrupo_to_alumno_fk_grupo, $this -> join_left);
-        $builder -> join($this -> table_docgrup, $this -> docgrup_fkd_grupo_to_grupos_idgrupo, $this -> join_left);
-        $builder -> join($this -> table_docentes, $this->docentes_iddocente_to_docgrup_fk_docente, $this -> join_left);
+        $builder -> join($this -> table_grupo, $this -> grupos_idgrupo_to_alumno_fk_grupo);
+        $builder -> join($this -> table_docgrup, $this -> docgrup_fkd_grupo_to_grupos_idgrupo);
+        $builder -> join($this -> table_docentes, $this->docentes_iddocente_to_docgrup_fk_docente);
         $builder -> where($this -> alumno_activo);
         $builder -> where($this -> grupo_activo);
         $builder -> groupBy("Grupos.idGrupo");
