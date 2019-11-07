@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `Ford32_school`.`Municipios` (
   INDEX `fk_estado` (`fk_estado` ASC),
   CONSTRAINT `fk_estado`
     FOREIGN KEY (`fk_estado`)
-    REFERENCES `Ford32_school`.`estados` (`idEstado`)
+    REFERENCES `Ford32_school`.`Estados` (`idEstado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -141,27 +141,27 @@ CREATE TABLE IF NOT EXISTS `Ford32_school`.`Alumnos` (
   INDEX `fk_grupo` (`fk_grupo` ASC),
   CONSTRAINT `fk_dato_alumno`
     FOREIGN KEY (`fk_dato_alumno`)
-    REFERENCES `Ford32_school`.`datosalumno` (`idDatoAlumno`)
+    REFERENCES `Ford32_school`.`DatosAlumno` (`idDatoAlumno`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_grupo`
     FOREIGN KEY (`fk_grupo`)
-    REFERENCES `Ford32_school`.`grupos` (`idGrupo`)
+    REFERENCES `Ford32_school`.`Grupos` (`idGrupo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_lugar_nacimiento`
     FOREIGN KEY (`fk_lugar_nacimiento`)
-    REFERENCES `Ford32_school`.`municipios` (`idMunicipio`)
+    REFERENCES `Ford32_school`.`Municipios` (`idMunicipio`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tipos_sangre`
     FOREIGN KEY (`fk_tipo_sangre`)
-    REFERENCES `Ford32_school`.`tipossangre` (`idTiposSangre`)
+    REFERENCES `Ford32_school`.`TiposSangre` (`idTiposSangre`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tutor`
     FOREIGN KEY (`fk_tutor`)
-    REFERENCES `Ford32_school`.`tutores` (`idTutor`)
+    REFERENCES `Ford32_school`.`Tutores` (`idTutor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -202,12 +202,12 @@ CREATE TABLE IF NOT EXISTS `Ford32_school`.`DocGrup` (
   INDEX `fkd_grupo` (`fkd_grupo` ASC),
   CONSTRAINT `fk_docente`
     FOREIGN KEY (`fk_docente`)
-    REFERENCES `Ford32_school`.`docentes` (`idDocente`)
+    REFERENCES `Ford32_school`.`Docentes` (`idDocente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fkd_grupo`
     FOREIGN KEY (`fkd_grupo`)
-    REFERENCES `Ford32_school`.`grupos` (`idGrupo`)
+    REFERENCES `Ford32_school`.`Grupos` (`idGrupo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB

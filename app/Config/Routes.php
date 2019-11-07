@@ -69,8 +69,6 @@ $routes->setAutoRoute(true);
  *  My Controllers
  * --------------------------------------------------------------------
  */
-$routes -> add('alumno', 'App\Controllers\app\AlumnoController::index');
-
 $routes -> add('reporte', 'App\Controllers\app\reports\ReportController::index');
 $routes -> add('report_viewer', 'App\Controllers\app\reports\ReportController::validarReporteGenerador');
 
@@ -82,7 +80,7 @@ $routes -> add('report_viewer', 'App\Controllers\app\reports\ReportController::v
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'HomeController::index');
+$routes -> get('/', 'HomeController::index');
 
 /**
  * --------------------------------------------------------------------
