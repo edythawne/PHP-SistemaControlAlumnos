@@ -13,7 +13,7 @@
         <p class="navdrawer-subheader">Navdrawer subheader</p> -->
         <ul class="navdrawer-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="<?php echo route_to('reporte'); ?>"><i class="material-icons mr-3">alarm_on</i> Reportes </a>
+                <a class="nav-link active" href="<?php echo base_url('reporte'); ?>"><i class="material-icons mr-3">alarm_on</i> Reportes </a>
             </li>
         </ul>
     </div>
