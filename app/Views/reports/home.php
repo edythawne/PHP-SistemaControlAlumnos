@@ -47,6 +47,27 @@
                 </div>
                 <!-- Section 1 End -->
 
+                <!-- Section 3 Start -->
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-2">
+                    <b>Datos de Nacimiento</b>
+                    <div class="dropdown-divider"></div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-5 col-lg-4 p-1">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="fecha_nacimiento" name="params[]"
+                               value="Alumnos.fec_nacimiento AS 'Fecha Nacimiento'">
+                        <label class="custom-control-label" for="fecha_nacimiento">Fecha de Nacimiento</label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-5 col-lg-4 p-1">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="edad" name="params[]"
+                               value="TIMESTAMPDIFF(YEAR, Alumnos.fec_nacimiento, NOW()) AS 'Edad'">
+                        <label class="custom-control-label" for="edad">Edad Actual</label>
+                    </div>
+                </div>
+                <!-- Section 3 End -->
+
                 <!-- Section 2 Start -->
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-2">
                     <b>Datos del Alumnos</b>
@@ -57,13 +78,6 @@
                         <input type="checkbox" class="custom-control-input" id="curp" name="params[]"
                                value="Alumnos.curp AS CURP">
                         <label class="custom-control-label" for="curp">CURP</label>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-5 col-lg-4 p-1">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="fecha_nacimiento" name="params[]"
-                               value="Alumnos.fec_nacimiento AS 'Fecha Nacimiento'">
-                        <label class="custom-control-label" for="fecha_nacimiento">Fecha de Nacimiento</label>
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-4 p-1">
