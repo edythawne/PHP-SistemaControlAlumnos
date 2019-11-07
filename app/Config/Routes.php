@@ -24,7 +24,7 @@ $routes = Services::routes(true);
 // can override as needed.
 if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
 {
-	require SYSTEMPATH . 'Config/Routes.php';
+    require SYSTEMPATH . 'Config/Routes.php';
 }
 
 /**
@@ -66,21 +66,21 @@ $routes->setAutoRoute(true);
 
 /**
  * --------------------------------------------------------------------
- *  My Controllers
- * --------------------------------------------------------------------
- */
-$routes -> add('reporte', 'App\Controllers\app\reports\ReportController::index');
-$routes -> add('report_viewer', 'App\Controllers\app\reports\ReportController::validarReporteGenerador');
-
-/**
- * --------------------------------------------------------------------
  * Route Definitions
  * --------------------------------------------------------------------
  */
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes -> get('/', 'HomeController::index');
+$routes->get('/', 'HomeController::index');
+
+/**
+ * --------------------------------------------------------------------
+ *  My Controllers
+ * --------------------------------------------------------------------
+ */
+$routes -> add('reporte', 'App\Controllers\app\reports\ReportController::index');
+$routes -> add('report_viewer', 'App\Controllers\app\reports\ReportController::validarReporteGenerador');
 
 /**
  * --------------------------------------------------------------------
@@ -97,5 +97,5 @@ $routes -> get('/', 'HomeController::index');
  */
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 {
-	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
