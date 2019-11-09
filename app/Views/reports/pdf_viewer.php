@@ -68,7 +68,7 @@
                 <table>
                     <thead>
                     <tr bgcolor="#c3c3c3">
-                        <th colspan="<?php echo count($html['report'][$i])+1; ?>">ALUMNOS <?php echo $html['report'][$i]['Grado']; ?></th>
+                        <th colspan="<?php echo count($html['report'][$i])+1; ?>"><b>ALUMNOS</b> <?php echo $html['report'][$i]['Grado']; ?></th>
                     </tr>
                     <tr bgcolor="#c3c3c3">
                         <th>#</th>

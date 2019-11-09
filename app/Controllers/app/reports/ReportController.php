@@ -1,13 +1,16 @@
 <?php namespace App\Controllers\app\reports;
 
 use App\Controllers\BaseController;
-use App\Libraries\PdfLib;
+use App\Libraries\DomPdfLIb;
+use App\Libraries\PhpWordLib;
 use App\Models\AlumnoModel;
 use Config\Services;
 
 class ReportController extends BaseController {
     // Report Variable
     protected $pdf = null;
+    protected $word = null;
+
     private $pdf_zise = null;
     private $pdf_orientation = null;
 
@@ -24,9 +27,15 @@ class ReportController extends BaseController {
      * ReportController constructor.
      */
     public function __construct(){
-        $this -> pdf = new PdfLib();
-        $this -> request = Services::request();
+        // Models
         $this -> student = new AlumnoModel();
+
+        // Libraries
+        $this -> pdf = new DomPdfLIb();
+        //$this -> word = new PhpWordLib();
+
+        // Services
+        $this -> request = Services::request();
     }
 
     /**
@@ -94,6 +103,7 @@ class ReportController extends BaseController {
 
         // PDF Content
         $html_content =  view('reports/pdf_viewer', $this -> data, array('saveData' => true));
+        //return view('reports/pdf_viewer', $this -> data);
 
         // PDF Config
         $this -> pdf -> loadHtml($html_content);

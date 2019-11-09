@@ -8,10 +8,11 @@ html {
 }
 
 body {
-    font-family: 'Droid', 'Helvetica';
+    font-family: "Times New Roman", serif;
     width: 100%;
     font-size: 18px;
     text-align: left;
+    font-weight:bolder;
     background-color: #FFF;
 }
 
