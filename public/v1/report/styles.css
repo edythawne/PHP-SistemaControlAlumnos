@@ -8,12 +8,12 @@ html {
 }
 
 body {
-    font-family: "Times New Roman", serif;
+    font-family: 'Droid', 'Helvetica';
+    font-style: normal;
+    font-weight: normal;
     width: 100%;
     font-size: 18px;
     text-align: left;
-    font-weight:bolder;
-    background-color: #FFF;
 }
 
 @page {

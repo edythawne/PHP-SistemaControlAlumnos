@@ -1,7 +1,7 @@
 <?php namespace App\Controllers\app\reports;
 
 use App\Controllers\BaseController;
-use App\Libraries\DomPdfLIb;
+use App\Libraries\DomPdfLib;
 use App\Libraries\PhpWordLib;
 use App\Models\AlumnoModel;
 use Config\Services;
@@ -31,7 +31,7 @@ class ReportController extends BaseController {
         $this -> student = new AlumnoModel();
 
         // Libraries
-        $this -> pdf = new DomPdfLIb();
+        $this -> pdf = new DomPdfLib();
         //$this -> word = new PhpWordLib();
 
         // Services
@@ -109,7 +109,7 @@ class ReportController extends BaseController {
         $this -> pdf -> loadHtml($html_content);
         $this -> pdf -> setPaper($this -> pdf_zise, $this -> pdf_orientation);
         $this -> pdf -> render();
-        $this -> pdf -> stream('Reporte.pdf', array("Attachment"=>0));
+        $this -> pdf -> stream('Reporte.pdf', array("Attachment" => 0));
     }
 
 }
