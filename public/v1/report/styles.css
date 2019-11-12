@@ -8,9 +8,7 @@ html {
 }
 
 body {
-    font-family: 'Droid', 'Helvetica';
-    font-style: normal;
-    font-weight: normal;
+    font-family: 'Courier', 'Helvetica';
     width: 100%;
     font-size: 18px;
     text-align: left;
@@ -23,8 +21,6 @@ body {
 header {
     position: fixed;
     top: -60px;
-    left: 0px;
-    right: 0px;
     height: 265px;
     z-index: 100;
     margin-top: 235px;
@@ -37,8 +33,6 @@ main {
 footer {
     position: fixed;
     bottom: -60px;
-    left: 0px;
-    right: 0px;
     height: 145px;
     z-index: 100;
 
