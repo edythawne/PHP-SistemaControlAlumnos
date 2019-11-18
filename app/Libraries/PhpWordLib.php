@@ -2,7 +2,7 @@
 
 namespace App\Libraries;
 
-require_once 'PhpOffice/autoload.inc.php';
+require_once 'phpoffice/autoload.inc.php';
 use PhpOffice\PhpWord\PhpWord;
 
 class PhpWordLib extends PhpWord {

@@ -1,6 +1,6 @@
 <footer>
     <div>
-        <b>Director de la Escuela</b> <br><br>
+        <b>Director de la Escuela</b> <br>
         <div class="signature">
             <b style="display: inline-block; border-top: 1px solid #000; padding-top:2px; width: 300px">
                 <?php

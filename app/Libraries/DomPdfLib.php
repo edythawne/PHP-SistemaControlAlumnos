@@ -2,7 +2,7 @@
 
 namespace App\Libraries;
 
-require_once 'Dompdf/autoload.inc.php';
+require_once 'dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 
 class DomPdfLib extends Dompdf {

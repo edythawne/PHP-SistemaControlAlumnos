@@ -10,7 +10,7 @@
 ?>
 
 <!-- Wrap the content of your PDF inside a main tag -->
-<main style="font-size: 18px;">
+<main>
     <!--<?php echo $html['report'][0]['Grado']; ?>-->
     <?php for($i = 0; $i < count($html['report']); $i++):  ?>
 
