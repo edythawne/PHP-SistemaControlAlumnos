@@ -10,13 +10,13 @@ html {
 body {
     font-family: 'Courier', 'Helvetica';
     width: 100%;
-    font-size: 13px;
+    font-size: 12px;
     text-align: left;
 }
 
 @page {
     margin: 100px 70px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 header {
