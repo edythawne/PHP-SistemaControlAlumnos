@@ -91,6 +91,7 @@ class AlumnoModel extends Model {
         $builder -> select('Alumnos.idAlumno, Alumnos.nombre, Alumnos.ape_paterno, Alumnos.ape_materno, Grupos.grado, Grupos.grupo');
         $builder -> join($this -> table_grupo, $this -> grupos_idgrupo_to_alumno_fk_grupo, $this -> join_left);
         $builder -> where($this -> alumno_activo);
+        $builder -> orderBy('left (Alumnos.ape_paterno, 1), left (Alumnos.ape_materno, 1)');
         $query = $builder -> get() -> getResultArray();
 
         $this -> disconnect();
@@ -174,6 +175,9 @@ class AlumnoModel extends Model {
         if (!empty($params['sexo'])){
             $builder -> where("Alumnos.sexo IN (".$params['sexo'].")");
         }
+
+        //$builder -> orderBy('Alumnos.ape_paterno ASC');
+        //$builder -> orderBy('Alumnos.ape_materno ASC');
 
         //print_r($builder->getCompiledSelect());
         //print_r($builder -> get() -> getResultArray());
