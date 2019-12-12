@@ -176,8 +176,7 @@ class AlumnoModel extends Model {
             $builder -> where("Alumnos.sexo IN (".$params['sexo'].")");
         }
 
-        //$builder -> orderBy('Alumnos.ape_paterno ASC');
-        //$builder -> orderBy('Alumnos.ape_materno ASC');
+        $builder -> orderBy('Grupos.grado ASC, Grupos.grupo ASC, Alumnos.ape_paterno ASC, Alumnos.ape_materno ASC, Alumnos.nombre');
 
         //print_r($builder->getCompiledSelect());
         //print_r($builder -> get() -> getResultArray());

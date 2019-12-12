@@ -49,3 +49,6 @@ SELECT CONCAT(Grupos.grado, Grupos.grupo) AS 'Grado', CONCAT(`Alumnos`.`ape_pate
 -- SELECT @@sql_mode;
 -- SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
+-- CALCULAR EDADES
+SELECT TIMESTAMPDIFF(YEAR, Alumnos.fec_nacimiento, NOW()) FROM Alumnos;
+
