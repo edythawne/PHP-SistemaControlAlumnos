@@ -52,3 +52,12 @@ SELECT CONCAT(Grupos.grado, Grupos.grupo) AS 'Grado', CONCAT(`Alumnos`.`ape_pate
 -- CALCULAR EDADES
 SELECT TIMESTAMPDIFF(YEAR, Alumnos.fec_nacimiento, NOW()) FROM Alumnos;
 
+-- Ordenar los grupos
+SELECT CONCAT(ANY_VALUE(Grupos.grado), Grupos.grupo) AS 'Grado', CONCAT(ANY_VALUE(Alumnos.ape_paterno), ' ', ANY_VALUE(`Alumnos`.`ape_materno`), ' ', ANY_VALUE(Alumnos.nombre)) AS 'Nombre del Alumno', 
+	ANY_VALUE(`Alumnos`.`curp`) AS `CURP`, CONCAT(ANY_VALUE(Tutores.ape_paterno), ' ', ANY_VALUE(`Tutores`.`ape_materno`), ' ', ANY_VALUE(Tutores.nombre)) AS 'Nombre del Tutor' 
+    FROM `Alumnos` 
+    LEFT JOIN `Tutores` ON `Alumnos`.`fk_tutor` = `Tutores`.`idTutor` 
+    LEFT JOIN `Grupos` ON `Alumnos`.`fk_grupo` = `Grupos`.`idGrupo` 
+    WHERE `Alumnos`.`activo` = '1' AND `Grupos`.`activo` = '1' AND `Grupos`.`grado` IN (1, 2, 3, 4, 5, 6) AND `Alumnos`.`sexo` IN ('F', 'M') 
+    GROUP BY `Grupos`.`grupo`
+    ORDER BY `Alumnos`.`ape_paterno` ASC, `Alumnos`.`ape_materno` ASC, `Alumnos`.`nombre`;
