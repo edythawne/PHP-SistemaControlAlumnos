@@ -54,8 +54,8 @@ class ReportController extends BaseController {
         $arg_grupos = $this -> request -> getVar('grupos');
         $arg_sexo = $this -> request -> getVar('sexo');
 
-        $this -> pdf_zise = $this -> request -> getVar('tamanio')[0];
-        $this -> pdf_orientation = $this -> request-> getVar('orientacion')[0];
+        $this -> pdf -> setPdfSize($this -> request -> getVar('tamanio')[0]);
+        $this -> pdf -> setPdfOrientation($this -> request-> getVar('orientacion')[0]);
 
         $campos = "CONCAT(Grupos.grado, Grupos.grupo) AS 'Grado', ";
         $grupos = '';
@@ -95,20 +95,16 @@ class ReportController extends BaseController {
      * PDF Render
      * @param $data
      */
-    private function pdfRender($data){
-        $this -> data['html']['title'] = 'Reporte';
-        $this -> data['html']['report'] = $data['data'];
-        $this -> data['html']['director'] = $this -> student -> getDirector();
+    private function pdfRender($data) {
+        $this->data['html']['title'] = 'Reporte';
+        $this->data['html']['report'] = $data['data'];
+        $this->data['html']['director'] = $this -> student -> getDirector();
 
         // PDF Content
-        $html_content =  view('reports/pdf_viewer', $this -> data, array('saveData' => true));
-        //return view('reports/pdf_viewer', $this -> data);
+        $html_content = view('reports/pdf_viewer', $this->data, array('saveData' => true));
 
         // PDF Config
-        $this -> pdf -> loadHtml($html_content);
-        $this -> pdf -> setPaper($this -> pdf_zise, $this -> pdf_orientation);
-        $this -> pdf -> render();
-        $this -> pdf -> stream('Reporte.pdf', array("Attachment" => 0));
+        $this -> pdf -> create($html_content);
     }
 
 }
