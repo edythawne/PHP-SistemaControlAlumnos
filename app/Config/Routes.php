@@ -72,7 +72,7 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'HomeController::index');
+$routes->get('/', 'App\Controllers\admin\HomeController::index');
 
 
 /**
@@ -80,8 +80,22 @@ $routes->get('/', 'HomeController::index');
  *  My Controllers
  * --------------------------------------------------------------------
  */
-$routes -> add('reporte', 'App\Controllers\app\reports\ReportController::index');
-$routes -> add('report_viewer', 'App\Controllers\app\reports\ReportController::validarReporteGenerador');
+
+/**
+ * --------------------------------------------------------------------
+ *  Grupos
+ * --------------------------------------------------------------------
+ */
+$routes -> group('admin', function ($routes){
+    $routes -> add('info/(:num)', 'App\Controllers\admin\InfoController::index/$1');
+});
+
+$routes -> group('report', function ($routes){
+    $routes->get('/', 'App\Controllers\report\ReportController::index');
+
+    $routes -> add('index', 'App\Controllers\report\ReportController::index');
+    $routes -> add('viewer', 'App\Controllers\report\ReportController::validarReporteGenerador');
+});
 
 /**
  * --------------------------------------------------------------------

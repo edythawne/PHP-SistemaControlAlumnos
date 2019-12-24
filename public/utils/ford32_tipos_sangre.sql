@@ -3,15 +3,14 @@ USE Ford32_school;
 
 -- INSERT 
 INSERT INTO TiposSangre VALUES
-	(1, 'Ninguno', 'Ninguno'),
-	(2, 'O Positivo', 'RHO+'),
-    (3, 'O Negativo', 'RHO-'),
-    (4, 'A Positivo', 'RHA+'),
-    (5, 'A Negativo', 'RHA-'),
-	(6, 'B Positivo', 'RHB+'),
-    (7, 'B Negativo', 'RHB-'),
-    (8, 'AB Positivo', 'RHAB+'),
-    (9, 'AB Negativo', 'RHAB-');
+	(1, 'O Positivo', 'RHO+'),
+    (2, 'O Negativo', 'RHO-'),
+    (3, 'A Positivo', 'RHA+'),
+    (4, 'A Negativo', 'RHA-'),
+	(5, 'B Positivo', 'RHB+'),
+    (6, 'B Negativo', 'RHB-'),
+    (7, 'AB Positivo', 'RHAB+'),
+    (8, 'AB Negativo', 'RHAB-');
 
 -- CONSULTA
 SELECT * FROM TiposSangre;
