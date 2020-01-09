@@ -3,6 +3,6 @@
     <button aria-controls="navdrawerDefault" aria-expanded="false" aria-label="Toggle Navdrawer" class="navbar-toggler" data-target="#navdrawerDefault" data-toggle="navdrawer"><span class="navbar-toggler-icon"></span></button>
     <span class="navbar-brand mr-auto"><?php echo $html['title']; ?></span>
 </header>
-<br><br>
+<br><br><br>
 <!-- Navigation Bar Final -->
 

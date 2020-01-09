@@ -8,7 +8,7 @@ class AlumnoModel extends Model {
     protected $database;
 
     // Helper
-    protected $helpers = ['json'];
+    protected $helpers = ['json, logger'];
 
 
     // Table Database
@@ -83,11 +83,50 @@ class AlumnoModel extends Model {
             ."COUNT(*) total_alumnos");
         $builder -> join($this -> table_grupo, $this -> grupos_idgrupo_to_alumno_fk_grupo);
         $builder -> join($this -> table_docgrup, $this -> docgrup_fkd_grupo_to_grupos_idgrupo);
-        $builder -> join($this -> table_docentes, $this->docentes_iddocente_to_docgrup_fk_docente);
+        $builder -> join($this -> table_docentes, $this-> docentes_iddocente_to_docgrup_fk_docente);
         $builder -> where($this -> alumno_activo);
         $builder -> where($this -> grupo_activo);
         $builder -> groupBy("Grupos.idGrupo");
 
+        $data = $builder -> get() -> getResultArray();
+
+        $this -> disconnect();
+        return arrayToJson($data);
+    }
+
+    /**
+     * Obtener los alumnos del Grado
+     * @param $id_grupo
+     * @return false|string
+     */
+    public function getAlumnosGrado($id_grupo){
+        $this -> connect();
+
+        // SQL Sentences
+        $builder = $this -> database -> table($this -> table_alumno);
+        $builder -> select("CONCAT(Grupos.grado, Grupos.grupo) AS Grupo,"
+            ."Alumnos.idAlumno AS IdAlumno, Alumnos.nombre AS 'Nombre', Alumnos.ape_paterno AS 'Apellido Paterno', "
+            ."Alumnos.ape_materno AS 'Apellido Materno', Alumnos.curp AS 'CURP' ");
+        $builder -> join($this -> table_grupo, $this -> grupos_idgrupo_to_alumno_fk_grupo, $this->join_left);
+        $builder -> where($this -> alumno_activo);
+        $builder -> where($this -> grupo_activo);
+        $builder -> where('Grupos.idGrupo = '.$id_grupo);
+
+        $data = $builder -> get() -> getResultArray();
+
+        $this -> disconnect();
+        return arrayToJson($data);
+    }
+
+    public function getIDGradoGrupo(){
+        $this -> connect();
+
+        // SQL Sentences
+        $builder = $this -> database -> table($this -> table_grupo);
+        $builder -> select("Grupos.idGrupo AS id_grupo, Grupos.grado AS grado, Grupos.grupo AS grupo");
+        $builder -> where($this -> grupo_activo);
+
+        //console_log($builder->getCompiledSelect());
         $data = $builder -> get() -> getResultArray();
 
         $this -> disconnect();

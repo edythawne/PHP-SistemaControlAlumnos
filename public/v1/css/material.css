@@ -3143,8 +3143,8 @@ fieldset:disabled a.btn {
 .btn-group-sm > .btn,
 .input-group-sm > .input-group-append > .btn,
 .input-group-sm > .input-group-prepend > .btn {
-  font-size: 0.8125rem;
-  padding: 0.59375rem 1rem;
+  font-size: 0.6125rem;
+  padding: 0.49375rem 1rem;
 }
 
 .btn-block {

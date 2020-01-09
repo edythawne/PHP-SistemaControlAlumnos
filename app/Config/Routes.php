@@ -58,7 +58,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * only routes that have been defined here will be available.
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('HomeController');
+$routes->setDefaultController('IndexController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -72,7 +72,7 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'App\Controllers\admin\HomeController::index');
+$routes->get('/', 'App\Controllers\IndexController::index');
 
 
 /**
@@ -86,12 +86,20 @@ $routes->get('/', 'App\Controllers\admin\HomeController::index');
  *  Grupos
  * --------------------------------------------------------------------
  */
+$routes -> group('user', function ($routes){
+    $routes -> get('/', 'App\Controllers\user\HomeController::index');
+    $routes -> get('info/', 'App\Controllers\user\InfoController::index/1');
+
+    $routes -> add('index', 'App\Controllers\user\HomeController::index');
+    $routes -> add('info/(:num)', 'App\Controllers\user\InfoController::index/$1');
+});
+
 $routes -> group('admin', function ($routes){
-    $routes -> add('info/(:num)', 'App\Controllers\admin\InfoController::index/$1');
+
 });
 
 $routes -> group('report', function ($routes){
-    $routes->get('/', 'App\Controllers\report\ReportController::index');
+    $routes -> get('/', 'App\Controllers\report\ReportController::index');
 
     $routes -> add('index', 'App\Controllers\report\ReportController::index');
     $routes -> add('viewer', 'App\Controllers\report\ReportController::validarReporteGenerador');

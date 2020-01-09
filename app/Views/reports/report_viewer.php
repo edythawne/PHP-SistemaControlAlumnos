@@ -1,6 +1,6 @@
 <?php
-    echo view('templates/report/header');
-    echo view('templates/report/footer_sign_dir');
+    echo view('reports/report_header');
+    echo view('reports/report_footer_sign_dir');
 ?>
 
 <?php
