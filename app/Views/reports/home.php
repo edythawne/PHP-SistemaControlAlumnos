@@ -1,12 +1,12 @@
 <?php
-    echo view('templates/page/header');
-    echo view('templates/page/navbar');
-    echo view('templates/page/navdrawer');
+    echo view('reports/templates/header');
+    echo view('reports/templates/navbar');
+    echo view('reports/templates/navdrawer');
 ?>
 <!-- Main Init -->
 <main style="margin: 30px;">
 
-    <?php echo form_open('report_viewer'); ?>
+    <?php echo form_open('report/viewer'); ?>
     <div class="" style="position: fixed; bottom: 45px; right: 24px;">
         <button name="submit" type="submit" class="btn btn-float"><i class="material-icons">send</i></button>
     </div>
@@ -261,6 +261,6 @@
 <!-- Main Final -->
 
 <?php
-    echo view('templates/page/footer');
+    echo view('reports/templates/footer');
 ?>
 
